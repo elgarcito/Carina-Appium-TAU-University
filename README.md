@@ -25,3 +25,19 @@ Each branch is going to have
 the name of the class finished (available from chapter 4.1).
 Due to the lack of IOS all the practice will be done in Android.
 Finally, in the main branch you will find all exercises together
+
+### Chapter 4.1 Key Concepts for iOS and Android Apps
+[Video link](https://www.youtube.com/watch?v=UwdUsemPnwM)
+
+In this example we should open the apk (That previously should be 
+downloaded and set the `capabilities.app=<path to file in computer or server>` in
+the [_config.properties](src/main/resources/_config.properties) ) using the 
+app.
+Test steps:
+1. Open the app
+2. Click the app button
+3. Get a list of all the option names.
+
+There are not Asserts in this example.
+In the future, we can compare
+what we get with a predefined list. 
