@@ -1,6 +1,7 @@
 package com.solvd.carina.example;
 import com.solvd.carina.example.gui.pages.common.AppHomePageBase;
 import com.solvd.carina.example.gui.pages.common.AppPageBase;
+import com.solvd.carina.example.gui.pages.common.DragAndDropPageBase;
 import com.solvd.carina.example.gui.pages.common.ViewPageBase;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
@@ -23,5 +24,14 @@ public class MobileTests implements IAbstractTest, IAndroidUtils {
         ViewPageBase viewPage= homePage.clickViewPage();
         viewPage.scrollDownToObject();
         Assert.assertEquals(viewPage.getListOptionText(),"Lists","Wrong message");
+    }
+
+    @Test(description = "Drag and drop test")
+    public void drag_and_drop_test(){
+        AppHomePageBase homePage=initPage(getDriver(), AppHomePageBase.class);
+        ViewPageBase viewPage=homePage.clickViewPage();
+        DragAndDropPageBase dragAndDropPage = viewPage.clickDragAndDropPage();
+        dragAndDropPage.dragCircle();
+        Assert.assertEquals(dragAndDropPage.getResultText(),"Dropped!","Circle not dropped");
     }
 }
