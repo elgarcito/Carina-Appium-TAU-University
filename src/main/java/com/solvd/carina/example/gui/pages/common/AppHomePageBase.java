@@ -8,4 +8,5 @@ public abstract class AppHomePageBase extends AbstractPage {
         super(driver);
     }
     public abstract AppPageBase clickAppPageBase();
+    public abstract ViewPageBase clickViewPage();
 }
