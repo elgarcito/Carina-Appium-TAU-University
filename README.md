@@ -26,13 +26,15 @@ the name of the class finished (available from chapter 4.1).
 Due to the lack of IOS all the practice will be done in Android.
 Finally, in the main branch you will find all exercises together
 
-### Chapter 5.3 - Mobile Gestures - Drag and Drop
-In this exercise, we are going to practise how to scroll down
+### Chapter 5.4 - Mobile Gestures - Swipe
+In this exercise, we are going to practise how to swipe
 To achieve this we are going to use the IAndroidUtils of carina framework
-.The principal method is `dragAndDrop(circle1,circle2, Duration.ofSeconds(3),Duration.ofSeconds(3))`
-This test in MobileTest.java called `sdrag_and_drop_test()` does te following:
+.The principal method is ``
+This test in MobileTest.java called `swipe_test()` does te following:
 1. Open the app
 2. Click the view Option
-3. Click Drag and Drop
-4. Drag the upper left circle to the upper right circle
-5. If the message "Dropped!" is displayed, the test pass otherwise it fails
+3. Click on Gallery
+4. Click on Photos
+5. Click the first photo and move to the right.
+
+This is not working we should ask how it works or keep practising.

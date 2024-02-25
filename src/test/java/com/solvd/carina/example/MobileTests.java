@@ -1,8 +1,5 @@
 package com.solvd.carina.example;
-import com.solvd.carina.example.gui.pages.common.AppHomePageBase;
-import com.solvd.carina.example.gui.pages.common.AppPageBase;
-import com.solvd.carina.example.gui.pages.common.DragAndDropPageBase;
-import com.solvd.carina.example.gui.pages.common.ViewPageBase;
+import com.solvd.carina.example.gui.pages.common.*;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.android.IAndroidUtils;
@@ -33,5 +30,14 @@ public class MobileTests implements IAbstractTest, IAndroidUtils {
         DragAndDropPageBase dragAndDropPage = viewPage.clickDragAndDropPage();
         dragAndDropPage.dragCircle();
         Assert.assertEquals(dragAndDropPage.getResultText(),"Dropped!","Circle not dropped");
+    }
+
+    @Test(description = "Swipe test")
+    public void swipe_test(){
+        AppHomePageBase homePage=initPage(getDriver(), AppHomePageBase.class);
+        ViewPageBase viewPage=homePage.clickViewPage();
+        GalleryPageBase galleryPage= viewPage.clickGalleryPage();
+        PhotosPageBase photosPage=galleryPage.clickOnPhotos();
+        photosPage.swipeToTheRight();
     }
 }
