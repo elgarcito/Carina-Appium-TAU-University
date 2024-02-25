@@ -14,6 +14,8 @@ public abstract class ViewPageBase extends AbstractPage {
     public abstract ListPageBase clickListPage();
     public abstract DragAndDropPageBase clickDragAndDropPage();
 
+    public abstract GalleryPageBase clickGalleryPage();
+
     public abstract void scrollDownToObject();
 
     public abstract String getListOptionText();

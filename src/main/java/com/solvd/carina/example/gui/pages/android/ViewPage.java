@@ -1,6 +1,7 @@
 package com.solvd.carina.example.gui.pages.android;
 
 import com.solvd.carina.example.gui.pages.common.DragAndDropPageBase;
+import com.solvd.carina.example.gui.pages.common.GalleryPageBase;
 import com.solvd.carina.example.gui.pages.common.ListPageBase;
 import com.solvd.carina.example.gui.pages.common.ViewPageBase;
 import com.zebrunner.carina.utils.android.IAndroidUtils;
@@ -19,6 +20,9 @@ public class ViewPage extends ViewPageBase implements IAndroidUtils {
     @FindBy(xpath = "//android.widget.TextView[@content-desc=\"Drag and Drop\"]")
     private ExtendedWebElement dragAndDropButton;
 
+    @FindBy(xpath = "//android.widget.TextView[@content-desc=\"Gallery\"]")
+    private ExtendedWebElement galleryButton;
+
     public ViewPage(WebDriver driver) {
         super(driver);
     }
@@ -33,6 +37,12 @@ public class ViewPage extends ViewPageBase implements IAndroidUtils {
     public DragAndDropPageBase clickDragAndDropPage() {
         dragAndDropButton.click();
         return initPage(driver, DragAndDropPageBase.class);
+    }
+
+    @Override
+    public GalleryPageBase clickGalleryPage() {
+        galleryButton.click();
+        return initPage(driver, GalleryPageBase.class);
     }
 
     @Override
