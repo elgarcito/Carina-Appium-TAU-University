@@ -13,6 +13,9 @@ public class PhotosPage extends PhotosPageBase implements IAndroidUtils {
     @FindBy(xpath = "//android.widget.Gallery[@resource-id=\"io.appium.android.apis:id/gallery\"]/android.widget.ImageView[1]")
     private ExtendedWebElement firstPhoto;
 
+    @FindBy(id = "io.appium.android.apis:id/gallery")
+    private ExtendedWebElement galleryContainer;
+
 
     public PhotosPage(WebDriver driver) {
         super(driver);
@@ -21,6 +24,6 @@ public class PhotosPage extends PhotosPageBase implements IAndroidUtils {
     @Override
     public void swipeToTheRight() {
        // swipe(firstPhoto,Direction.RIGHT,1000,1000);
-        swipeRight(firstPhoto,1000);
+        swipeRight(galleryContainer,1000);
     }
 }
