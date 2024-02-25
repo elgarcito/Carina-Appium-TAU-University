@@ -3,6 +3,7 @@ import com.solvd.carina.example.gui.pages.common.*;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.android.IAndroidUtils;
+import io.appium.java_client.android.AndroidDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -40,4 +41,10 @@ public class MobileTests implements IAbstractTest, IAndroidUtils {
         PhotosPageBase photosPage=galleryPage.clickOnPhotos();
         photosPage.swipeToTheRight();
     }
+
+    @Test(description = "send SMS")
+    public void send_SMS(){
+        sendSMS("2498774455","Holo from Appium");
+    }
+
 }
