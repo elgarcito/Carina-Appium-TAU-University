@@ -32,6 +32,7 @@ We have a problem because we can't open it from the start.
 So 
 to work, we should have the calculator previously open in the emulator.
 The test does the following:
+The calculator apk used is located in [apps](src/main/resources/apps)
 1. Click button 1
 2. Click button 0
 3. Click button 0
