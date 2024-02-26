@@ -18,6 +18,8 @@ public class SuccessLoginPage extends SuccessLoginPageBase {
         super(driver);
         setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
         setUiLoadedMarker(successMessage);
+//        setPageOpeningStrategy(PageOpeningStrategy.BY_URL);
+//        setPageAbsoluteURL("https://the-internet.herokuapp.com/login/secure");
     }
 
     @Override
@@ -25,8 +27,8 @@ public class SuccessLoginPage extends SuccessLoginPageBase {
         return successMessage.getText();
     }
 
-    @Override
-    public void open() {
-        openURL(Configuration.getRequired("loginSuccess_url"));
-    }
+//    @Override
+//    public void open() {
+//        openURL(Configuration.getRequired("loginSuccess_url"));
+//    }
 }

@@ -26,12 +26,27 @@ the name of the class finished (available from chapter 4.1).
 Due to the lack of IOS all the practice will be done in Android.
 Finally, in the main branch you will find all exercises together
 
-### Chapter 5.6 - Sending Photos for Android
-In this exercise, we are going to practise how to send an image to the device
+### Chapter 6.1 - Web Testing with Chrome on Android
+In this exercise, we are going to practise how to use the web driver in the mobile device
 To achieve this we are going to use the IAndroidUtils of carina framework
-.The principal method is `pushFile("/sdcard/download/"+image.getName(),image)`
-This test in MobileTest.java called `send_photos()` does te following:
-1. Open photos(We have the same previous problem so it should be opened before the test)
-2. Upload the photo
-3. Check if one photo appears
-4. In order to re-do it then it delete the image
+
+This test in MobileTest.java called `userLogin_theInternet()` does te following:
+1. Open browser
+2. Go to https://the-internet.herokuapp.com/login 
+3. Fill the form
+4. click login
+5. It is important to use this to be able to use the method `isPageOpened()`
+This is used in Carina Demo
+``` 
+    public SuccessLoginPage(WebDriver driver) {
+        super(driver);
+        setPageOpeningStrategy(PageOpeningStrategy.BY_ELEMENT);
+        setUiLoadedMarker(successMessage);
+    }
+```
+There is something wrong that doesn't work the following configuration (is not used in Carina Demo)
+```
+        setPageOpeningStrategy(PageOpeningStrategy.BY_URL);
+        setPageAbsoluteURL("https://the-internet.herokuapp.com/login/secure");
+```
+6. Check if the message appeared in the new page.

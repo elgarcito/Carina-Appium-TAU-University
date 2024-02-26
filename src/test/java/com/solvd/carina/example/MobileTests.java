@@ -1,9 +1,13 @@
 package com.solvd.carina.example;
 import com.solvd.carina.example.gui.pages.common.*;
+import com.solvd.carina.example.mobile.gui.pages.android.LoginPage;
+import com.solvd.carina.example.mobile.gui.pages.common.LoginPageBase;
+import com.solvd.carina.example.mobile.gui.pages.common.SuccessLoginPageBase;
 import com.zebrunner.carina.core.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import com.zebrunner.carina.utils.android.IAndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,8 +73,22 @@ public class MobileTests implements IAbstractTest, IAndroidUtils {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
 
-
+    @Test(description = "Log in example in webDriver")
+    public void userLogin_theInternet(){
+        WebDriver driver=getDriver();
+        LoginPageBase loginPage=initPage(driver,LoginPageBase.class);
+        loginPage.open();
+        loginPage.sendUserName("tomsmith");
+        loginPage.sendPassword("SuperSecretPassword!");
+        SuccessLoginPageBase successLoginPage= loginPage.clickLoginButton();
+        WebDriverWait wait =new WebDriverWait(driver,Duration.ofSeconds(10));
+        String message= successLoginPage.getSuccessLoginMessage();
+        wait.until(ExpectedConditions.urlContains("secure"));
+        Assert.assertTrue(successLoginPage.isPageOpened(),"Page was not opened");
+        String textToCompare="You logged into a secure area!";
+        Assert.assertTrue(message.contains(textToCompare));
     }
 
 }
