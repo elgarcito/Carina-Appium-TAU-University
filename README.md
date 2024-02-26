@@ -26,11 +26,12 @@ the name of the class finished (available from chapter 4.1).
 Due to the lack of IOS all the practice will be done in Android.
 Finally, in the main branch you will find all exercises together
 
-### Chapter 5.5 - Simulate Sending SMS for Android
-In this exercise, we are going to practise how to send SMS
+### Chapter 5.6 - Sending Photos for Android
+In this exercise, we are going to practise how to send an image to the device
 To achieve this we are going to use the IAndroidUtils of carina framework
-.The principal method is `sendSMS("2226669999","Holo from Appium");`
-This test in MobileTest.java called `send_SMS()` does te following:
-1. Change the configuration in order to open the sms app
-2. Send an sms using the method
-3. We can assert something but this is ok for now
+.The principal method is `pushFile("/sdcard/download/"+image.getName(),image)`
+This test in MobileTest.java called `send_photos()` does te following:
+1. Open photos(We have the same previous problem so it should be opened before the test)
+2. Upload the photo
+3. Check if one photo appears
+4. In order to re-do it then it delete the image
